@@ -1,11 +1,14 @@
 <!-- news/templates/news/story.html -->
 {% extends "base.html" %}
 {% load static %}
+
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css'%}">
 {% endblock %}
 
 {% block content %}
+<section id="story"></section>
+
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
