@@ -8,18 +8,18 @@
     {% block content %}
 <div class="create-story">
         {% if add_story_view %}
-        <h2 class="form-h2">Create new story</h2>
+            <h2 class="form-h2">Create new story</h2>
         {% else %}
-        <h2 class="form-h2">Edit story</h2>
+            <h2 class="form-h2">Edit story</h2>
         {% endif %}
-    <form action="" method="post"></form>
+    <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}    
         {% if request.user.is_authenticated %}
-        <input type="submit" value="submit">
+            <input type="submit" value="submit">
         {% else %}
-        <p class="warning-label">You are not logged in. Please log in to submit your story.</p>
-        <a class="log-button" href="{% url 'login' %}">Log in</a>
+            <p class="warning-label">You are not logged in. Please log in to submit your story.</p>
+            <a class="log-button" href="{% url 'login' %}">Log in</a>
         {% endif %}
     </form>
 </div>

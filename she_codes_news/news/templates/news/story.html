@@ -8,7 +8,7 @@
 {% block content %}
 <section id="story">
     <div id="story-wrapper">
-        <img src="{{ story.news_image }}"/>
+        <img src="{{ story.image }}">
         <h2>{{ story.title }}</h2>
         <p class="auth-pub">Published: {{ story.pub_date|date:'d M y' }}</p>
         <p class="auth-pub">View stories by author: <a class="view-stories" href="{% url 'news:authorStories' story.author.id %}">{{ story.author }}</a></p>
@@ -18,19 +18,19 @@
     </div>
 
     <div id="comment-wrapper"></div>
-        <h3>Comments</h3>
+            <h3>Comments</h3>
         {% if story.comments.count %}
-            {% for comment in story.comments.all %}
-                {% include "./commentCard.html" with comment=comment %}
-            {% endfor %}
+        {% for comment in story.comments.all %}
+        {% include "./commentCard.html" with comment=comment %}
+        {% endfor %}
         {% else %}
-        <p>No comments for this story yet.</p>
+            <p>No comments for this story yet.</p>
         {% endif %}
 
         {% if request.user.is_authenticated %}
-        <form id="comment-form" method="POST" action="{% url 'news:addComment' story.id %}">
-            {% csrf_token %}
-            {{ form.as_p }}
+            <form id="comment-form" method="POST" action="{% url 'news:addComment' story.id %}">
+                {% csrf_token %}
+                {{ form.as_p }}
             <input class="submit-button" type="submit" value="Add comment">
         </form>
         {% endif %}
