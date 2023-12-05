@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block stylesheet %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}"> 
 {% endblock %}
@@ -18,7 +19,8 @@
             <p>No stories are available.</p>
         {% endif %}
     </div>
-
+    
+    <h2 class="main-h2" >All News</h2>
     <div id="all-stories">
         {% if latest_stories %}
             {% for story in all_stories %}
