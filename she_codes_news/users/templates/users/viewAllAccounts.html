@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>View Accounts</h2>
+
+<p>Hello {{ user.username }}</p>
+
+<div>
+    {% if latest_stories %}
+        {% for story in latest_stories %}
+            {% include "./storyCard.html" with story=story position=forloop.counter %}
+        {% endfor %}
+    {% else %}
+        <p>No accounts registered.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

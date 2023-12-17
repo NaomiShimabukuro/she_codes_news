@@ -88,7 +88,8 @@ class AddCommentView(generic.CreateView):
         return reverse_lazy("news:story", kwargs={'pk':pk})
 
 
-# ----- simple success page to confirm deletion of story ----- 
+# -----page to confirm deletion of story ----- 
+
 def delete_success_view(request):
     return render(request, 'news/deleteSuccess.html')
 
@@ -104,9 +105,10 @@ class DeleteStoryView(generic.edit.DeleteView):
         return context
 
 
-# new class for viewing authors stories
+# ----------for viewing authors stories-------
 class AuthorStories(generic.ListView):
     template_name = 'news/authorStories.html'
+
 
     def get_queryset(self):
         '''Return all news stories.'''

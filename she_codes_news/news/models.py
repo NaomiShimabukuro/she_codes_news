@@ -8,8 +8,9 @@ class NewsStory(models.Model):
         on_delete=models.CASCADE
     )    
     pub_date = models.DateTimeField()
+    modified_date = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    image = models.URLField(null=True, blank=True)
+    news_image = models.URLField(blank=True)
 
 class Comment(models.Model):
     story = models.ForeignKey(NewsStory, related_name="comments", on_delete=models.CASCADE)

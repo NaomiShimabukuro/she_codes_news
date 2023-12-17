@@ -1,5 +1,4 @@
 {% load static %}
-
 <!doctype html>
 
 <html lang="en">
@@ -7,23 +6,26 @@
         <meta charset="utf-8">
         <title>She Codes News</title>
         <meta name="description" content="">
-        <meta name="author" content="Naomi Shimabukuro">
+        <meta name="author" content="Hayley van Waas">
         <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-        {% block stylesheet %}{% endblock %}
     </head>
-
+    {% block stylesheets %}{% endblock %}
     <body>
         <header>
             <div id="header-text">
                 <a id="header-link" href="{% url 'news:index' %}">
-                    <h1>She {Codes} News</h1>
+                    <h1>She <span id="h1">{Codes}</span> News</h1>
+                    
                 </a>
             </div>
+            <!-- include nav here -->
             {% include './nav.html' %}
         </header>
-
-        
+        <main>
         {% block content %}{% endblock %}
+        <!-- content blocks here -->
+        </main>
+        <footer></footer>
     </body>
 </html>
